@@ -1,0 +1,42 @@
+[META] Level metadata.
+
+> text - (level title or something)
+
+[Light] The Light World!
+
+> player -
+	x - (middle x)
+	y - (middle y)
+
+$box -
+	x - (middle x)
+	y - (middle y)
+	w - (width)
+	h - (height)
+
+$wall -
+	x - (middle x)
+	y - (middle y)
+	w - (width)
+	h - (height)
+	b - (border thickness)
+
+$switch -
+	x - (middle x)
+	y - (middle y)
+	d - (direction)
+	k - (key)
+
+$door -
+	x - (middle x)
+	y - (middle y)
+	d - (direction)
+	k - (key)
+
+> exit -
+	x - (middle x)
+	y - (middle y)
+
+[Dark] The Dark World!
+
+(same as Light)
