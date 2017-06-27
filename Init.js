@@ -39,11 +39,11 @@ function Init() { // Setup!
 	light_objects = { // Objects in the light world.
 		
 		player: {}, // The controllable player.
-		blocks: [], // Blcks the player c
+		blocks: [], // Blocks the player.
 		walls: [], // World walls.
 		switches: [], // Buttons that open doors.
 		doors: [], // Locked doors.
-		exit: {} // Level ends
+		exit: {} // Level ends.
 		
 	};
 	
