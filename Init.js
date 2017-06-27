@@ -8,6 +8,7 @@ function Init() { // Setup!
 	Light_World.height = 400;
 	
 	light_draw = Light_World.getContext("2d");
+	light_draw.imageSmoothingEnabled = false; // No pixelizing here!
 	document.body.appendChild(Light_World);
 	
 	// Style!
@@ -23,8 +24,8 @@ function Init() { // Setup!
 	
 	Dark_World = document.createElement("canvas");
 	
-	Dark_World.width = 400;
-	Dark_World.height = 400;
+	Dark_World.width = 100;
+	Dark_World.height = 100;
 	
 	dark_draw = Dark_World.getContext("2d");
 	
@@ -57,5 +58,7 @@ function Init() { // Setup!
 		exit: {}
 		
 	};
+	
+	interdimensional = {}; // Variables used by objects in BOTH worlds.
 	
 }

@@ -1,17 +1,27 @@
-function checkerboard(parity, pencil, location) { // Make the screen a checkerboard pattern.
+function checkerboard(parity, pencil, location, screen, screen2) { // Make the screen a checkerboard pattern.
 	
-	var pixels = pencil.getImageData(0, 0, 4400, 400); // Pixels is the ImageData().
+	var pixels = pencil.getImageData(0, 0, screen.width, screen.height); // Pixels is the ImageData().
 	
-	for(var count = 0; count < pixels.data.length / 4; count++) { // For every pixel.
+	var offset = 0; // The offset.
+	
+	for(var y = 0; y < screen.height; y++) { // For every pixel.
 		
-		if(count % 2 == parity) { // If it's the correct parity...
+		for(var x = 0; x < screen.width; x++) {
 			
-			pixels.data[count * 4 + 3] = 0; // ...remove it! (completely transparent)
+			if(x % 2 - offset == parity) { // If it's the correct parity...
+				
+				pixels.data[(x + y * screen.width) * 4 + 3] = 0; // ...remove it! (completely transparent)
+				
+			}
 			
 		}
 		
+		offset = !offset; // Remove it and see what happens!
+		
 	}
 	
-	location.putImageData(pixels, 0, 0);
+	pencil.putImageData(pixels, 0, 0); // Put the processed image back.
+	
+	location.drawImage(screen, 0, 0, screen2.width, screen2.height); // Copy & paste to the correct canvas.
 	
 }
