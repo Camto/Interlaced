@@ -21,16 +21,33 @@ function expect(part) { // Expect a certain thing from the data.
 		case "section":
 			
 			pointer++; // [
+			skip();
 			var section_name = expect("name"); // Title
-			pointer++; // ]
+			
+			next_line();
+			skip();
 			
 			var section_data = {};
 			
 			while(level_data[pointer] != "[" || pointer == level_data.length) { // Until we find another section or the E.O.F.
 				
+				if(level_data[pointer] == ">") {
+					
+					let object = expect("unique object");
+					section_data[object[0]] = object[1];
+					
+				}
 				
+				if(level_data[pointer] == "$") {
+					
+					let object = expect("object");
+					section_data[object[0]] = object[1];
+					
+				}
 				
 			}
+			
+			skip();
 			
 			return [section_name, section_data];
 		
@@ -52,7 +69,7 @@ function expect(part) { // Expect a certain thing from the data.
 
 function skip() { // Skip past whitespace!
 	
-	while(/[\t ]/.test(level_data[pointer]) || pointer == level_data.length) { // While we can't find a non tab or space character...
+	while(/[\t ]/.test(level_data[pointer]) || pointer == level_data.length) { // While we can't find a non-whitespace character or E.O.F. ...
 		
 		pointer++; // ...we keep on moving along the file.
 		
@@ -62,22 +79,12 @@ function skip() { // Skip past whitespace!
 
 function next_line() { // Skip one line of data. (till a line feed is encountered)
 	
-	while(level_data[pointer] != "\n" || pointer == level_data.length) { // Keep on skipping till a newline is encountered. (also E.O.F.)
+	while(/[\n\r]/.test(level_data[pointer]) || pointer == level_data.length) { // Keep on skipping till a newline is encountered. (also E.O.F.)
 		
 		pointer++;
 		
 	}
 	
 	pointer++; // Then skip the whitespace itself!
-	
-}
-
-function next_char() { // Skip past ANY whitespace!
-	
-	while(/\s/.test(level_data[pointer]) || pointer == level_data.length) { // While we can't find a non whitespace character...
-		
-		pointer++; // ...we keep on moving along the file.
-		
-	}
 	
 }
