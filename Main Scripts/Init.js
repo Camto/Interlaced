@@ -8,10 +8,10 @@ function Init() { // Setup!
 	Light_World.height = 400;
 	
 	light_draw = Light_World.getContext("2d");
-	light_draw.imageSmoothingEnabled = false; // No pixelizing here!
-	document.body.appendChild(Light_World);
+	light_draw.imageSmoothingEnabled = false; // No blurred pixels here!
+	document.body.appendChild(Light_World); // 
 	
-	// Style!
+	// All of these styles put the canvas in the middle of the screen.
 	
 	Light_World.style.position = "absolute";
 	Light_World.style.margin = "auto";
@@ -24,7 +24,7 @@ function Init() { // Setup!
 	
 	Dark_World = document.createElement("canvas");
 	
-	Dark_World.width = 100;
+	Dark_World.width = 100; // It's smaller, but eveything gets resized later so it's okay.
 	Dark_World.height = 100;
 	
 	dark_draw = Dark_World.getContext("2d");
@@ -33,7 +33,7 @@ function Init() { // Setup!
 	
 	// Add keyboard events.
 	
-	Keys_Setup(window, Light_World); // The visible screen is the one that gets the events.
+	Keys_Setup(Light_World, Light_World); // The visible screen is the one that gets the events.
 	
 	// Game objects.
 	
