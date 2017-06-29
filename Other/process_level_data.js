@@ -29,7 +29,7 @@ function expect(part) { // Expect a certain thing from the data.
 			
 			var section_data = {};
 			
-			while(level_data[pointer] != "[" || pointer == level_data.length) { // Until we find another section or the E.O.F.
+			while(level_data[pointer] != "[" && pointer < level_data.length) { // Until we find another section or the E.O.F.
 				
 				if(level_data[pointer] == ">") {
 					
@@ -51,11 +51,11 @@ function expect(part) { // Expect a certain thing from the data.
 			
 			return [section_name, section_data];
 		
-		case "name":
+		case "name": // Like a variable name.
 			
 			var name = "";
 			
-			while(/A-Za-z/.test(level_data[pointer])) {
+			while(/A-Za-z/.test(level_data[pointer]) && pointer < level_data.length) { // Read chars until the name's done.
 				
 				name += level_data[pointer];
 				
@@ -63,13 +63,67 @@ function expect(part) { // Expect a certain thing from the data.
 			
 			return name;
 		
+		case "unique object": // Like a javascript object variable!
+			
+			pointer++; // >
+			skip();
+			
+			var name = expect("name"); // The variable's name.
+			
+			skip();
+			pointer++; // -
+			next_line();
+			skip();
+			
+			var attributes = []; // The object attributes.
+			
+			while(!/\$>\[/.test(level_data[pointer]) && pointer < level_data.length) { // Loop until the object definition is over.
+				
+				attributes.push(expect("attribute"));
+				
+			}
+			
+			skip();
+			
+			return ["unique object", name, attributes];
+		
+		case "object": // Like a javascript object (but this time, in an array)!
+			
+			pointer++; // $
+			skip();
+			
+			var name = expect("name"); // The array's name.
+			
+			skip();
+			pointer++; // -
+			next_line();
+			skip();
+			
+			var attributes = []; // The object attributes.
+			
+			while(!/\$>\[/.test(level_data[pointer]) && pointer < level_data.length) { // Loop until the object definition is over.
+				
+				attributes.push(expect("attribute"));
+				
+			}
+			
+			skip();
+			
+			return ["object", name, attributes];
+		
+		case "attribute":
+			
+			// To do.
+			
+			return [name, value];
+		
 	}
 	
 }
 
 function skip() { // Skip past whitespace!
 	
-	while(/[\t ]/.test(level_data[pointer]) || pointer == level_data.length) { // While we can't find a non-whitespace character or E.O.F. ...
+	while(/\s/.test(level_data[pointer]) && pointer < level_data.length) { // While we can't find a non-whitespace character or E.O.F. ...
 		
 		pointer++; // ...we keep on moving along the file.
 		
@@ -77,9 +131,9 @@ function skip() { // Skip past whitespace!
 	
 }
 
-function next_line() { // Skip one line of data. (till a line feed is encountered)
+function next_line() { // skip one line of data. (till a line feed is encountered)
 	
-	while(/[\n\r]/.test(level_data[pointer]) || pointer == level_data.length) { // Keep on skipping till a newline is encountered. (also E.O.F.)
+	while(/[\n\r]/.test(level_data[pointer]) && pointer < level_data.length) { // Keep on skipping till a newline is encountered. (also E.O.F.)
 		
 		pointer++;
 		

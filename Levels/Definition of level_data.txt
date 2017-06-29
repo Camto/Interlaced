@@ -40,7 +40,7 @@ DEF UNIQUE_OBJECT:
 	Skip ws
 	
 	Until find $ or > or [:
-		Give find KEYVAL
+		Give find ATTRIBUTE
 	
 	Skip ws
 	
@@ -57,11 +57,11 @@ DEF OBJECT:
 	Skip ws
 	
 	Until find $ or > or [:
-		Give find KEYVAL
+		Give find ATTRIBUTE
 	
 	Skip ws
 	
-DEF KEYVAL:
+DEF ATTRIBUTE:
 	
 	Give find NAME
 	
