@@ -1,0 +1,82 @@
+DEF LEVEL_DATA:
+	
+	Skip ws
+	
+	Until reach E.O.F.:
+		Give find SECTION
+
+DEF SECTION:
+	
+	Skip [
+	Skip ws
+	Give find NAME
+	Skip ws
+	Skip ]
+	
+	Skip line
+	Skip ws
+	
+	Until find [:
+		Is > ? Then give find UNIQUE_OBJECT
+		Is $ ? Then give find OBJECT
+	
+DEF NAME:
+	
+	Until find non-alfabetical character:
+		Give selected character
+	
+	Skip ws
+	
+DEF UNIQUE_OBJECT:
+	
+	Skip >
+	Skip ws
+	
+	Give find NAME
+	
+	Skip ws
+	Skip -
+	Skip line
+	Skip ws
+	
+	Until find $ or > or [:
+		Give find KEYVAL
+	
+	Skip ws
+	
+DEF OBJECT:
+	
+	Skip >
+	Skip ws
+	
+	Give find NAME
+	
+	Skip ws
+	Skip -
+	Skip line
+	Skip ws
+	
+	Until find $ or > or [:
+		Give find KEYVAL
+	
+	Skip ws
+	
+DEF KEYVAL:
+	
+	Give find NAME
+	
+	Skip ws
+	Skip -
+	Skip ws
+	
+	Give find NUMBER
+	
+	Skip line
+	Skip ws
+
+DEF NUMBER:
+	
+	Until find non-numerical character:
+		Give selected character
+	
+	Skip ws
