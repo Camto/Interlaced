@@ -41,6 +41,7 @@ function Init() { // Setup!
 	// Game objects.
 	
 	ingame = false; // If your're in a level, or loading one.
+	level = 0;
 	
 	light_objects = { // Objects in the light world.
 		
