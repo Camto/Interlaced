@@ -83,11 +83,13 @@ function expect(part) { // Expect a certain thing from the data.
 			next_line();
 			skip();
 			
-			var attributes = []; // The object attributes.
+			var attributes = {}; // The object attributes.
 			
 			while(!/[\$>\[]/.test(level_data[pointer]) && pointer < level_data.length) { // Loop until the object definition is over.
 				
-				attributes.push(expect("attribute"));
+				let attribute = expect("attribute");
+				
+				attributes[attribute[0]] = attribute[1];
 				
 			}
 			
@@ -107,11 +109,13 @@ function expect(part) { // Expect a certain thing from the data.
 			next_line();
 			skip();
 			
-			var attributes = []; // The object attributes.
+			var attributes = {}; // The object attributes.
 			
 			while(!/[\$>\[]/.test(level_data[pointer]) && pointer < level_data.length) { // Loop until the object definition is over.
 				
-				attributes.push(expect("attribute"));
+				let attribute = expect("attribute");
+				
+				attributes[attribute[0]] = attribute[1];
 				
 			}
 			

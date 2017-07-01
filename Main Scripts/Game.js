@@ -8,8 +8,17 @@ function Game() { // The game loop.
 		loadFile("Levels/Level " + level + ".lvl", function() {
 			
 			var level_JSON = process_level_data(this.responseText);
-			light_objects = level_JSON.Light;
-			dark_objects = level_JSON.Dark;
+			
+			// Load in light objects.
+			
+			light_objects.player = new Player(level_JSON.Light.player.x, level_JSON.Light.player.y);
+			light_objects.exit = new Exit(level_JSON.Light.exit.x, level_JSON.Light.exit.y, level_JSON.Light.exit.w, level_JSON.Light.exit.h);
+			
+			// Load in dark objects.
+			
+			dark_objects.player = new Player(level_JSON.Dark.player.x, level_JSON.Dark.player.y);
+			dark_objects.exit = new Exit(level_JSON.Dark.exit.x, level_JSON.Dark.exit.y, level_JSON.Dark.exit.w, level_JSON.Dark.exit.h);
+			
 			ingame = true;
 			
 		});
