@@ -9,6 +9,8 @@ Block.prototype.constructor = "Block";
 
 Block.prototype.draw = function(pencil) {
 	
-	
+	pencil.beginPath();
+	pencil.fillStyle = (pencil.world ? "#21C115" : "#DE3EEA");
+	pencil.fillRect(this.x, this.y, this.w, this.h);
 	
 }

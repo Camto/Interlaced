@@ -1,10 +1,10 @@
 function Game_Object(x, y, w, h) { // The default game object.
 	
-	this.width = w;
-	this.height = h;
+	this.w = w;
+	this.h = h;
 	
-	this.x = x - this.width / 2; // The x and y are in the middle in the level data, so put them in the corner.
-	this.y = y - this.height / 2;
+	this.x = x - this.w / 2; // The x and y are in the middle in the level data, so put them in the corner.
+	this.y = y - this.h / 2;
 	
 }
 

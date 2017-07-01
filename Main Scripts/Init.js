@@ -40,6 +40,8 @@ function Init() { // Setup!
 	
 	// Game objects.
 	
+	ingame = false; // If your're in a level, or loading one.
+	
 	light_objects = { // Objects in the light world.
 		
 		player: {}, // The controllable player.

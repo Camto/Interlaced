@@ -22,22 +22,20 @@ Switch.prototype.update = function(world) {
 
 Switch.prototype.draw = function(pencil) {
 	
+	pencil.beginPath();
+	pencil.fillStyle = (pencil.world ? "#FF0000" : "#0000FF");
+	
 	if(!interdimensional[this.key]) { // If the switch HASN'T been pressed.
 		
-		pencil.beginPath();
-		pencil.fillStyle = (pencil.world ? "#00AAFF" : "#8800FF");
 		pencil.arc(this.x, this.y, 10, 1 * Math.PI, 2 * Math.PI);
-		pencil.fill();
-		pencil.closePath();
 		
 	} else { // If the switch has been pressed.
 		
-		pencil.beginPath();
-		pencil.fillStyle = (pencil.world ? "#00AAFF" : "#8800FF");
 		pencil.arc(this.x, this.y + 2.5, 10, 7 * Math.PI / 6, 11 * Math.PI / 6);
-		pencil.fill();
-		pencil.closePath();
 		
 	}
+	
+	pencil.closePath();
+	pencil.fill();
 	
 }

@@ -9,6 +9,8 @@ Wall.prototype.constructor = "Wall";
 
 Wall.prototype.draw = function(pencil) {
 	
-	
+	pencil.beginPath();
+	pencil.fillStyle = (pencil.world ? "#000000" : "#FFFFFF");
+	pencil.fillRect(this.x, this.y, this.w, this.h);
 	
 }
