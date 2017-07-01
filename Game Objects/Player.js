@@ -18,6 +18,7 @@ Player.prototype.update = function(world) {
 
 Player.prototype.draw = function(pencil) {
 	
-	
+	pencil.beginPath();
+	pencil.fillStyle = (pencil.world ? "#57E9FF" : "#A66BFF");
 	
 };

@@ -9,7 +9,9 @@ function Init() { // Setup!
 	
 	light_draw = Light_World.getContext("2d");
 	light_draw.imageSmoothingEnabled = false; // No blurred pixels here!
-	document.body.appendChild(Light_World); // 
+	light_draw.world = true; // To make it simpler, true is light world and false is dark world.
+	
+	document.body.appendChild(Light_World); // Make the canvas visible.
 	
 	// All of these styles put the canvas in the middle of the screen.
 	
@@ -28,6 +30,7 @@ function Init() { // Setup!
 	Dark_World.height = 100;
 	
 	dark_draw = Dark_World.getContext("2d");
+	dark_draw.world = false;
 	
 	// No need for style becuase the dark world canvas is invisible!
 	

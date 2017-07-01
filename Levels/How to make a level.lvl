@@ -4,7 +4,7 @@
 	x - (middle x)
 	y - (middle y)
 
-$box -
+$block -
 	x - (middle x)
 	y - (middle y)
 	w - (width)
@@ -15,7 +15,6 @@ $wall -
 	y - (middle y)
 	w - (width)
 	h - (height)
-	b - (border thickness)
 
 $switch -
 	x - (middle x)
@@ -26,7 +25,8 @@ $switch -
 $door -
 	x - (middle x)
 	y - (middle y)
-	d - (direction)
+	w - (width)
+	h - (height)
 	k - (key)
 
 > exit -
