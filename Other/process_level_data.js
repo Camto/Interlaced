@@ -8,9 +8,11 @@ function process_level_data(text) { // Turn readable level data into JSON.
 	while(pointer < level_data.length) { // Read data until you reach the end.
 		
 		let section = expect("section");
-		level_data[section[0]] = section[1];
+		level_JSON[section[0]] = section[1];
 		
 	}
+	
+	return level_JSON;
 	
 }
 
@@ -24,7 +26,7 @@ function expect(part) { // Expect a certain thing from the data.
 			skip();
 			var section_name = expect("name"); // Title
 			
-			next_line();
+			next_line(); // ] and comments
 			skip();
 			
 			var section_data = {};
@@ -41,7 +43,12 @@ function expect(part) { // Expect a certain thing from the data.
 				if(level_data[pointer] == "$") {
 					
 					let object = expect("object");
-					section_data[object[0]] = object[1];
+					if(!section_data[object[0]]) {
+						
+						section_data[object[0]] = [];
+						
+					}
+					section_data[object[0]].push(object[1]);
 					
 				}
 				
@@ -55,9 +62,10 @@ function expect(part) { // Expect a certain thing from the data.
 			
 			var name = "";
 			
-			while(/A-Za-z/.test(level_data[pointer]) && pointer < level_data.length) { // Read chars until the name's done.
+			while(/[A-Za-z]/.test(level_data[pointer]) && pointer < level_data.length) { // Read chars until the name's done.
 				
 				name += level_data[pointer];
+				pointer++;
 				
 			}
 			
@@ -77,7 +85,7 @@ function expect(part) { // Expect a certain thing from the data.
 			
 			var attributes = []; // The object attributes.
 			
-			while(!/\$>\[/.test(level_data[pointer]) && pointer < level_data.length) { // Loop until the object definition is over.
+			while(!/[\$>\[]/.test(level_data[pointer]) && pointer < level_data.length) { // Loop until the object definition is over.
 				
 				attributes.push(expect("attribute"));
 				
@@ -85,7 +93,7 @@ function expect(part) { // Expect a certain thing from the data.
 			
 			skip();
 			
-			return ["unique object", name, attributes];
+			return [name, attributes];
 		
 		case "object": // Like a javascript object (but this time, in an array)!
 			
@@ -101,7 +109,7 @@ function expect(part) { // Expect a certain thing from the data.
 			
 			var attributes = []; // The object attributes.
 			
-			while(!/\$>\[/.test(level_data[pointer]) && pointer < level_data.length) { // Loop until the object definition is over.
+			while(!/[\$>\[]/.test(level_data[pointer]) && pointer < level_data.length) { // Loop until the object definition is over.
 				
 				attributes.push(expect("attribute"));
 				
@@ -109,13 +117,35 @@ function expect(part) { // Expect a certain thing from the data.
 			
 			skip();
 			
-			return ["object", name, attributes];
+			return [name, attributes];
 		
 		case "attribute":
 			
-			// To do.
+			var name = expect("name");
+			
+			skip();
+			pointer++; // -
+			skip();
+			
+			var value = expect("number");
+			
+			next_line();
+			skip();
 			
 			return [name, value];
+		
+		case "number":
+			
+			var number = "";
+			
+			while(/\d/.test(level_data[pointer]) && pointer < level_data.length) { // Get all the numbers!
+				
+				number += level_data[pointer];
+				pointer++;
+				
+			}
+			
+			return number;
 		
 	}
 	
@@ -133,7 +163,7 @@ function skip() { // Skip past whitespace!
 
 function next_line() { // skip one line of data. (till a line feed is encountered)
 	
-	while(/[\n\r]/.test(level_data[pointer]) && pointer < level_data.length) { // Keep on skipping till a newline is encountered. (also E.O.F.)
+	while(!/[\n\r]/.test(level_data[pointer]) && pointer < level_data.length) { // Keep on skipping till a newline is encountered. (also E.O.F.)
 		
 		pointer++;
 		
