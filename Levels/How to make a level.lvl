@@ -1,4 +1,4 @@
-[Light] The Light World!
+[Light] The wight world!
 
 > player -
 	x - (middle x)
@@ -32,7 +32,9 @@ $door -
 > exit -
 	x - (middle x)
 	y - (middle y)
+	w - (width)
+	h - (height)
 
-[Dark] The Dark World!
+[Dark] The dark world!
 
 (same as Light)
