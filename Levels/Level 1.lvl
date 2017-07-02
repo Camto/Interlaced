@@ -10,6 +10,24 @@ $block - Blocks are just the standard solid thing the player can stand on.
 	w - 4
 	h - 21
 
+$block -
+	x - 61
+	y - 86
+	w - 4
+	h - 21
+
+$switch -
+	x - 45
+	y - 96
+	d - 1
+	k - 1
+
+$door -
+	x - 45
+	y - 76
+	w - 27
+	h - 4
+
 > exit - This is where both players have to get to!
 	x - 45
 	y - 89
