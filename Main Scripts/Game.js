@@ -34,7 +34,7 @@ function Game() { // The game loop.
 		dark_draw.fillRect(0, 0, 100, 100); // The other background.
 		
 		// All dark world objects.
-		dark_objects.player.draw(dark_draw);}
+		dark_objects.player.draw(dark_draw);
 		for(count = 0; count < dark_objects.blocks.length; count++) {
 			dark_objects.blocks[count].draw(dark_draw);
 		}
