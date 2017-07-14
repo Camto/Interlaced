@@ -1,6 +1,6 @@
 function Switch(x, y, d, k) { // Press me to open a door!
 	
-	Game_Object.call(this, x, y, w, h); // Class inheritance.
+	Game_Object.call(this, x, y, 10, 10); // Class inheritance.
 	
 	this.key = k;
 	interdimensional[this.key] = false;
@@ -27,11 +27,11 @@ Switch.prototype.draw = function(pencil) {
 	
 	if(!interdimensional[this.key]) { // If the switch HASN'T been pressed.
 		
-		pencil.arc(this.x, this.y, 10, 1 * Math.PI, 2 * Math.PI);
+		pencil.arc(this.x, this.y, 5, 1 * Math.PI, 2 * Math.PI);
 		
 	} else { // If the switch has been pressed.
 		
-		pencil.arc(this.x, this.y + 2.5, 10, 7 * Math.PI / 6, 11 * Math.PI / 6);
+		pencil.arc(this.x, this.y + 2.5, 5, 7 * Math.PI / 6, 11 * Math.PI / 6);
 		
 	}
 	
