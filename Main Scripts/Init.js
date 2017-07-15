@@ -9,6 +9,7 @@ function Init() { // Setup!
 	
 	light_draw = Light_World.getContext("2d");
 	light_draw.imageSmoothingEnabled = false; // No blurred pixels here!
+	light_draw.mozImageSmoothingEnabled = false; // Just in case!
 	light_draw.world = true; // To make it simpler, true is light world and false is dark world.
 	
 	document.body.appendChild(Light_World); // Make the canvas visible.

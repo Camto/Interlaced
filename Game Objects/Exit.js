@@ -21,7 +21,7 @@ Exit.prototype.update = function(world) {
 Exit.prototype.draw = function(pencil) {
 	
 	pencil.beginPath();
-	pencil.fillStyle = (pencil.world ? "#1414FF" : "#EBEB00");
+	pencil.fillStyle = (pencil.world ? "#EBEB00" : "#1414FF");
 	pencil.fillRect(this.x, this.y, this.w, this.h);
 	
 }

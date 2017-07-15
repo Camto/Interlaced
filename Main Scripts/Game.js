@@ -15,39 +15,39 @@ function Game() { // The game loop.
 	// All light world objects.
 	if(s_ingame) {
 		
-		light_objects.player.draw(light_draw);
 		for(count = 0; count < light_objects.blocks.length; count++) {
 			light_objects.blocks[count].draw(light_draw);
 		}
 		for(count = 0; count < light_objects.walls.length; count++) {
 			light_objects.walls[count].draw(light_draw);
 		}
-		for(count = 0; count < light_objects.switches.length; count++) {
-			light_objects.switches[count].draw(light_draw);
-		}
 		for(count = 0; count < light_objects.doors.length; count++) {
 			light_objects.doors[count].draw(light_draw);
 		}
 		light_objects.exit.draw(light_draw);
+		for(count = 0; count < light_objects.switches.length; count++) {
+			light_objects.switches[count].draw(light_draw);
+		}
+		light_objects.player.draw(light_draw);
 		
 		dark_draw.fillStyle = "black";
 		dark_draw.fillRect(0, 0, 100, 100); // The other background.
 		
 		// All dark world objects.
-		dark_objects.player.draw(dark_draw);
 		for(count = 0; count < dark_objects.blocks.length; count++) {
 			dark_objects.blocks[count].draw(dark_draw);
 		}
 		for(count = 0; count < dark_objects.walls.length; count++) {
 			dark_objects.walls[count].draw(dark_draw);
 		}
-		for(count = 0; count < dark_objects.switches.length; count++) {
-			dark_objects.switches[count].draw(dark_draw);
-		}
 		for(count = 0; count < dark_objects.doors.length; count++) {
 			dark_objects.doors[count].draw(dark_draw);
 		}
 		dark_objects.exit.draw(dark_draw);
+		for(count = 0; count < dark_objects.switches.length; count++) {
+			dark_objects.switches[count].draw(dark_draw);
+		}
+		dark_objects.player.draw(dark_draw);
 		
 	} else { // If we're not in a level, we need to load a new one!
 		
@@ -141,7 +141,7 @@ function Game() { // The game loop.
 						level_JSON.Dark.door[count].y,
 						level_JSON.Dark.door[count].w,
 						level_JSON.Dark.door[count].h,
-						level_JSON.Dark.door[count].k,)
+						level_JSON.Dark.door[count].k)
 					);
 				}
 			}
