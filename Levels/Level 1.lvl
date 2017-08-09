@@ -16,6 +16,30 @@ $block -
 	w - 4
 	h - 21
 
+$wall -
+	x - 50
+	y - 2
+	w - 100
+	h - 4
+
+$wall -
+	x - 2
+	y - 50
+	w - 4
+	h - 100
+
+$wall -
+	x - 50
+	y - 98
+	w - 100
+	h - 4
+
+$wall -
+	x - 98
+	y - 50
+	w - 4
+	h - 100
+
 $switch -
 	x - 45
 	y - 96
@@ -45,6 +69,30 @@ $block - Blocks are just the standard solid thing the player can stand on.
 	y - 83
 	w - 44
 	h - 26
+
+$wall -
+	x - 50
+	y - 2
+	w - 100
+	h - 4
+
+$wall -
+	x - 2
+	y - 50
+	w - 4
+	h - 100
+
+$wall -
+	x - 50
+	y - 98
+	w - 100
+	h - 4
+
+$wall -
+	x - 98
+	y - 50
+	w - 4
+	h - 100
 
 $switch - TEST
 	x - 45
