@@ -53,7 +53,7 @@ $switch - TEST
 	k - 2
 
 > exit - This is where both players have to get to!
-	x - 96
-	y - 86
-	w - 4
-	h - 21
+	x - 93
+	y - 90
+	w - 6
+	h - 12
