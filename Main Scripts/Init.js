@@ -37,7 +37,7 @@ function Init() { // Setup!
 	
 	// Add keyboard events.
 	
-	Keys_Setup(window, Light_World); // The visible screen is the one that gets the events.
+	Keys_Setup(Light_World, Light_World); // The visible screen is the one that gets the events.
 	
 	// Game objects.
 	
