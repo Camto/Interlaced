@@ -149,7 +149,7 @@ function expect(part) { // Expect a certain thing from the data.
 				
 			}
 			
-			return number;
+			return +number;
 		
 	}
 	

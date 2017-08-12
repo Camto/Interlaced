@@ -45,6 +45,24 @@ Player.prototype.update = function(world) {
 	this.xs *= 0.8;
 	this.x += this.xs;
 	
+	if(world) {
+		
+		for(var count = 0; count < light_objects.blocks.length; count++) {
+			if(this.collide(light_objects.blocks[count])) {
+				this.x = light_objects.blocks[count].x - this.w;
+			}
+		}
+		
+	} else {
+		
+		for(var count = 0; count < dark_objects.blocks.length; count++) {
+			if(this.collide(dark_objects.blocks[count])) {
+				this.x = dark_objects.blocks[count].x - this.w;
+			}
+		}
+		
+	}
+	
 };
 
 Player.prototype.draw = function(pencil) {
