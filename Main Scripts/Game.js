@@ -11,7 +11,8 @@ function Game() { // The game loop.
 	if(s_ingame) {
 		
 		// Update EVERYTHING.
-		light_objects.player.update();
+		light_objects.player.update(true);
+		dark_objects.player.update(false);
 		
 		// All light world objects.
 		for(count = 0; count < light_objects.blocks.length; count++) {

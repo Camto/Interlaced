@@ -12,13 +12,39 @@ Player.prototype.constructor = "Player";
 
 Player.prototype.update = function(world) {
 	
-	if(Light_World.keys.up) {
+	if(world) {
 		
-		this.y--;
+		if(keys[key_codes.a]) {
+			
+			this.xs -= 0.5;
+			
+		}
+		
+		if(keys[key_codes.d]) {
+			
+			this.xs += 0.5;
+			
+		}
+		
+	} else {
+		
+		if(keys[key_codes.left]) {
+			
+			this.xs -= 0.5;
+			
+		}
+		
+		if(keys[key_codes.right]) {
+			
+			this.xs += 0.5;
+			
+		}
 		
 	}
 	
-	if(this.y < 0) {console.log(Light_World.keys); this.y = 100} else {this.y--;}
+	this.xs *= 0.8;
+	this.x += this.xs;
+	
 };
 
 Player.prototype.draw = function(pencil) {
