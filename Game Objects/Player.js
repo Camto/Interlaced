@@ -12,8 +12,13 @@ Player.prototype.constructor = "Player";
 
 Player.prototype.update = function(world) {
 	
+	if(Light_World.keys.up) {
+		
+		this.y--;
+		
+	}
 	
-	
+	if(this.y < 0) {console.log(Light_World.keys); this.y = 100} else {this.y--;}
 };
 
 Player.prototype.draw = function(pencil) {

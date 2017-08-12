@@ -43,14 +43,14 @@ $wall -
 $switch -
 	x - 45
 	y - 96
-	d - 1
 	k - 1
 
 $door -
 	x - 45
 	y - 76
-	w - 27
+	w - 28
 	h - 4
+	k - 2
 
 > exit - This is where both players have to get to!
 	x - 45
@@ -94,11 +94,24 @@ $wall -
 	w - 4
 	h - 100
 
-$switch - TEST
+$switch -
 	x - 45
 	y - 70
-	d - 1
 	k - 2
+
+$door -
+	x - 82
+	y - 86
+	w - 6
+	h - 20
+	k - 1
+
+$door -
+	x - 89
+	y - 76
+	w - 14
+	h - 6
+	k - 1
 
 > exit - This is where both players have to get to!
 	x - 93

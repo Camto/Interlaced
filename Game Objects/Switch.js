@@ -1,4 +1,4 @@
-function Switch(x, y, d, k) { // Press me to open a door!
+function Switch(x, y, k) { // Press me to open a door!
 	
 	Game_Object.call(this, x, y, 10, 10); // Class inheritance.
 	

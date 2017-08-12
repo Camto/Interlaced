@@ -9,7 +9,7 @@ function Init() { // Setup!
 	
 	light_draw = Light_World.getContext("2d");
 	light_draw.imageSmoothingEnabled = false; // No blurred pixels here!
-	light_draw.mozImageSmoothingEnabled = false; // Just in case!
+	light_draw.mozImageSmoothingEnabled = false; // I know it's deprecated, but just in case!
 	light_draw.world = true; // To make it simpler, true is light world and false is dark world.
 	
 	document.body.appendChild(Light_World); // Make the canvas visible.
@@ -37,7 +37,7 @@ function Init() { // Setup!
 	
 	// Add keyboard events.
 	
-	Keys_Setup(Light_World, Light_World); // The visible screen is the one that gets the events.
+	Keys_Setup(window, Light_World); // The visible screen is the one that gets the events.
 	
 	// Game objects.
 	

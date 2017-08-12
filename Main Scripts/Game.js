@@ -3,18 +3,17 @@ function Game() { // The game loop.
 	var count = 0; // Looping variable.
 	var s_ingame = ingame; // Synchronous `ingame` variable.
 	
-	// Update EVERYTHING.
-	
-	
-	
-	// Draw EVERYTHING.
+	// Draw the background.
 	
 	light_draw.fillStyle = "white";
 	light_draw.fillRect(0, 0, 100, 100); // The background.
 	
-	// All light world objects.
 	if(s_ingame) {
 		
+		// Update EVERYTHING.
+		light_objects.player.update();
+		
+		// All light world objects.
 		for(count = 0; count < light_objects.blocks.length; count++) {
 			light_objects.blocks[count].draw(light_draw);
 		}
@@ -83,7 +82,6 @@ function Game() { // The game loop.
 					light_objects.switches.push(new Switch(
 						level_JSON.Light["switch"][count].x,
 						level_JSON.Light["switch"][count].y,
-						level_JSON.Light["switch"][count].d,
 						level_JSON.Light["switch"][count].k)
 					);
 				}
@@ -129,7 +127,6 @@ function Game() { // The game loop.
 					dark_objects.switches.push(new Switch(
 						level_JSON.Dark["switch"][count].x,
 						level_JSON.Dark["switch"][count].y,
-						level_JSON.Dark["switch"][count].d,
 						level_JSON.Dark["switch"][count].k)
 					);
 				}
