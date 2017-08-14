@@ -10,9 +10,9 @@ function Switch(x, y, k) { // Press me to open a door!
 Switch.prototype = Object.create(Game_Object.prototype); // Also inheritance.
 Switch.prototype.constructor = "Switch";
 
-Switch.prototype.update = function(world) {
+Switch.prototype.update = function(objects) {
 	
-	if(!interdimensional[this.key] && this.collide(world.player)) { // If the player is touching the switch and the key is unset...
+	if(!interdimensional[this.key] && this.collide(objects.player)) { // If the player is touching the switch and the key is unset...
 		interdimensional[this.key] = true; // ...set the key!
 	}
 	

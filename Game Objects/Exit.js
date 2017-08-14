@@ -7,14 +7,9 @@ function Exit(x, y, w, h) { // You can do it! You can beat the level!!!
 Exit.prototype = Object.create(Game_Object.prototype); // Also inheritance.
 Exit.prototype.constructor = "Exit";
 
-Exit.prototype.update = function(world) {
+Exit.prototype.update = function(objects) {
 	
-	if(this.collide(world.player)) {
-		
-		ingame = false;
-		level++;
-		
-	}
+	return this.collide(objects.player);
 	
 }
 

@@ -33,6 +33,12 @@ function Game() { // The game loop.
 				count--;
 			}
 		}
+		if(light_objects.exit.update(light_objects) && dark_objects.exit.update(dark_objects)) {
+			
+			ingame = false;
+			level++;
+			
+		}
 		
 		// All light world objects.
 		for(count = 0; count < light_objects.blocks.length; count++) {
@@ -76,6 +82,17 @@ function Game() { // The game loop.
 			var level_JSON = process_level_data(this.responseText);
 			
 			// Load in light objects.
+			
+			light_objects = { // Reset objects.
+				
+				player: {},
+				blocks: [],
+				walls: [],
+				switches: [],
+				doors: [],
+				exit: {}
+				
+			};
 			
 			light_objects.player = new Player(level_JSON.Light.player.x, level_JSON.Light.player.y);
 			if(level_JSON.Light.block) {
@@ -121,6 +138,17 @@ function Game() { // The game loop.
 			light_objects.exit = new Exit(level_JSON.Light.exit.x, level_JSON.Light.exit.y, level_JSON.Light.exit.w, level_JSON.Light.exit.h);
 			
 			// Load in dark objects.
+			
+			dark_objects = { // Reset objects.
+				
+				player: {},
+				blocks: [],
+				walls: [],
+				switches: [],
+				doors: [],
+				exit: {}
+				
+			};
 			
 			dark_objects.player = new Player(level_JSON.Dark.player.x, level_JSON.Dark.player.y);
 			if(level_JSON.Dark.block) {
