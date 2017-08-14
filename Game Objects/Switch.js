@@ -13,9 +13,7 @@ Switch.prototype.constructor = "Switch";
 Switch.prototype.update = function(world) {
 	
 	if(!interdimensional[this.key] && this.collide(world.player)) { // If the player is touching the switch and the key is unset...
-		
 		interdimensional[this.key] = true; // ...set the key!
-		
 	}
 	
 };

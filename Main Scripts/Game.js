@@ -13,6 +13,26 @@ function Game() { // The game loop.
 		// Update EVERYTHING.
 		light_objects.player.update(true);
 		dark_objects.player.update(false);
+		for(count = 0; count < light_objects.switches.length; count++) {
+			light_objects.switches[count].update(light_objects);
+		}
+		for(count = 0; count < dark_objects.switches.length; count++) {
+			dark_objects.switches[count].update(dark_objects);
+		}
+		for(count = 0; count < light_objects.doors.length; count++) {
+			light_objects.doors[count].update();
+			if(light_objects.doors[count].opened) {
+				light_objects.doors.splice(count, 1);
+				count--;
+			}
+		}
+		for(count = 0; count < dark_objects.doors.length; count++) {
+			dark_objects.doors[count].update();
+			if(dark_objects.doors[count].opened) {
+				dark_objects.doors.splice(count, 1);
+				count--;
+			}
+		}
 		
 		// All light world objects.
 		for(count = 0; count < light_objects.blocks.length; count++) {
