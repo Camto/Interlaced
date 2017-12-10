@@ -11,7 +11,7 @@ Door.prototype.constructor = "Door";
 
 Door.prototype.update = function(world) {
 	
-	if(interdimensional[this.k]) {
+	if(interdimensional[this.k - 1]) {
 		this.opened = true;
 	}
 	

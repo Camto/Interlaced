@@ -1,0 +1,143 @@
+[Light] The letters W & N.
+
+> player -
+	x - 50
+	y - 90
+
+$wall -
+	x - 50
+	y - 2
+	w - 100
+	h - 4
+
+$wall -
+	x - 2
+	y - 50
+	w - 4
+	h - 100
+
+$wall -
+	x - 50
+	y - 98
+	w - 100
+	h - 4
+
+$wall -
+	x - 98
+	y - 50
+	w - 4
+	h - 100
+
+$block - W left.
+	x - 11
+	y - 26
+	w - 6
+	h - 32
+
+$block - W right.
+	x - 30
+	y - 26
+	w - 6
+	h - 32
+
+$block - W bottom.
+	x - 21
+	y - 39
+	w - 25
+	h - 6
+
+$block - W middle.
+	x - 21
+	y - 34
+	w - 6
+	h - 16
+
+$block - N left.
+	x - 70
+	y - 26
+	w - 6
+	h - 32
+
+$block - N top.
+	x - 75
+	y - 13
+	w - 15
+	h - 6
+
+$block - N middle.
+	x - 80
+	y - 26
+	w - 6
+	h - 32
+
+$block - N bottom.
+	x - 85
+	y - 39
+	w - 15
+	h - 6
+
+$block - N right.
+	x - 89
+	y - 26
+	w - 6
+	h - 32
+
+> exit - This is where both players have to get to!
+	x - 0
+	y - 0
+	w - 0
+	h - 0
+
+[Dark] The letter I.
+
+> player -
+	x - 50
+	y - 90
+
+$wall -
+	x - 50
+	y - 2
+	w - 100
+	h - 4
+
+$wall -
+	x - 2
+	y - 50
+	w - 4
+	h - 100
+
+$wall -
+	x - 50
+	y - 98
+	w - 100
+	h - 4
+
+$wall -
+	x - 98
+	y - 50
+	w - 4
+	h - 100
+
+$block - I top.
+	x - 50
+	y - 13
+	w - 25
+	h - 6
+
+$block - I bottom.
+	x - 50
+	y - 39
+	w - 25
+	h - 6
+
+$block - I middle.
+	x - 50
+	y - 26
+	w - 6
+	h - 32
+
+> exit - This is where both players have to get to!
+	x - 0
+	y - 0
+	w - 0
+	h - 0

@@ -77,7 +77,7 @@ function Game() { // The game loop.
 		
 	} else { // If we're not in a level, we need to load a new one!
 		
-		loadFile("Levels/Level " + level + ".lvl", function() {
+		loadFile("Levels/Level " + level + (window.test_levels == undefined ? ".lvl": ".tlvl"), function() {
 			
 			var level_JSON = process_level_data(this.responseText);
 			
@@ -149,6 +149,8 @@ function Game() { // The game loop.
 				exit: {}
 				
 			};
+			
+			interdimensional = {}; // Reset interdimensional keys.
 			
 			dark_objects.player = new Player(level_JSON.Dark.player.x, level_JSON.Dark.player.y);
 			if(level_JSON.Dark.block) {
